@@ -40,6 +40,13 @@
     max-width: em(100, $fz);
   }
 
+  &__label {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: em(10, $fz);
+  }
+
   &__counter {
     padding: em(15 20, $fz);
 

@@ -41,12 +41,21 @@
                     >
                 </li>
             </ul>
-            <button
-                @click="counter++"
-                class="home-ui-page__counter"
-            >
-                Counter {{ counter }}
-            </button>
+            <div class="home-ui-page__label">
+                <button
+                    @click="counter++"
+                    class="home-ui-page__counter"
+                >
+                    Counter {{ counter }}
+                </button>
+                <button
+                    v-if="counter > 0"
+                    @click="counter = 0"
+                    class="home-ui-page__counter"
+                >
+                    Clear
+                </button>
+            </div>
             <button
                 @click="loading = !loading"
                 class="home-ui-page__counter"
