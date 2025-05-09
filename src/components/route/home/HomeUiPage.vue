@@ -8,14 +8,18 @@
 
     const counter = ref<number>(0);
 
+    const loading = ref<boolean>(false);
+
     const listIcons = ref<IIcon[]>([
         {
             src: '/svg/vite.svg',
             alt: 'Vite logo',
+            isActive: false,
         },
         {
             src: '/svg/vue.svg',
             alt: 'Vue logo',
+            isActive: true,
         },
     ]);
 </script>
@@ -25,8 +29,9 @@
         <UiPageContent class="home-ui-page__content">
             <ul class="home-ui-page__list">
                 <li
-                    v-for="({src, alt}, index) in listIcons"
+                    v-for="({src, alt, isActive}, index) in listIcons"
                     :key="index"
+                    :class="isActive && 'home-ui-page__list-item--is-active'"
                     class="home-ui-page__list-item"
                 >
                     <img
@@ -42,6 +47,18 @@
             >
                 Counter {{ counter }}
             </button>
+            <button
+                @click="loading = !loading"
+                class="home-ui-page__counter"
+            >
+                Показать прелоудер
+            </button>
+            <img
+                v-show="loading"
+                src="/svg/infinite-spinner.svg"
+                alt="Прелоудер"
+                class="home-ui-page__preloader"
+            >
         </UiPageContent>
     </UiPage>
 </template>

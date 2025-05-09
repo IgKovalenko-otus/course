@@ -16,6 +16,30 @@
     gap: em(10, $fz);
   }
 
+  &__list-item {
+    display: flex;
+    padding: em(15, $fz);
+    width: em(80, $fz);
+    height: em(80, $fz);
+
+    align-content: center;
+    justify-content: center;
+
+    background: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 em(10 -4, $fz) hsl(0, 0%, 0%);
+
+    &--is-active {
+      box-shadow:
+        0 0 em(10 -4, $fz) hsl(0, 0%, 0%),
+        inset 0 0 0 2px hsl(337, 100%, 54%);
+    }
+  }
+
+  &__preloader {
+    max-width: em(100, $fz);
+  }
+
   &__counter {
     padding: em(15 20, $fz);
 
