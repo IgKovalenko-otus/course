@@ -1,0 +1,34 @@
+.home-ui-page {
+  padding: em(20, $fz);
+
+  &__content {
+    display: grid;
+
+    grid-gap: em(20, $fz);
+    align-content: flex-start;
+    justify-items: center;
+  }
+
+  &__list {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: em(10, $fz);
+  }
+
+  &__counter {
+    padding: em(15 20, $fz);
+
+    background-color: hsl(179, 51%, 39%);
+    border-radius: em(4, $fz);
+
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background: hsl(177, 52%, 46%);
+    }
+  }
+}

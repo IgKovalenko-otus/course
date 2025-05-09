@@ -12,19 +12,17 @@ body {
   /* Width */
   &::-webkit-scrollbar {
     width: em(10, $fz);
+    height: em(10, $fz);
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: hsl(214, 20%, 88%);
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: hsl(220, 100%, 68%);
-    background-clip: content-box;
-
-    border: em(3, $fz) solid transparent;
+    background: hsl(214, 20%, 69%);
   }
 }
 
@@ -59,7 +57,7 @@ button {
   border-radius: 0;
 
   font: inherit;
-  font-family: Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   color: inherit;
   text-align: inherit;
   cursor: pointer;
@@ -81,7 +79,7 @@ input {
   border: none;
   border-radius: 0;
 
-  font-family: Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: inherit;
   resize: none;
 
