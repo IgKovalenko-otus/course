@@ -1,15 +1,12 @@
 <script setup lang="ts">
     import {ref} from 'vue';
 
+    import type {IIcon} from './logic/types';
+
     import UiPageContent from 'blocks/Page/Content/UiPageContent.vue';
     import UiPage from 'blocks/Page/UiPage.vue';
 
     const counter = ref<number>(0);
-
-    export interface IIcon {
-        src?: string
-        alt?: string
-    }
 
     const listIcons = ref<IIcon[]>([
         {
