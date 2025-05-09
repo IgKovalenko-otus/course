@@ -5,6 +5,14 @@ import { fileURLToPath, URL } from 'url'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+        additionalData: `@use 'src/scss/global-imports' as *;`,
+      },
+    },
+  },
   resolve: {
     alias: {
       'src': fileURLToPath(new URL('./src', import.meta.url)),
@@ -13,3 +21,4 @@ export default defineConfig({
     }
   },
 })
+

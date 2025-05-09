@@ -1,0 +1,28 @@
+@use "sass:list";
+@use "sass:meta";
+
+@function em($values...) {
+  $context: strip-units(list.nth($values, list.length($values)));
+  $result: ();
+  $separator: list.separator($values);
+
+  @for $i from 1 through list.length($values) - 1 {
+    $value: list.nth($values, $i);
+
+    @if meta.type-of($value) == "number" {
+      $value: strip-units($value);
+      $result: list.append($result, calc($value / $context) * 1em, $separator);
+    } @else if meta.type-of($value) == "list" {
+      $list: list.append($value, $context);
+      $result: list.append($result, em($list...), $separator);
+    } @else {
+      $result: list.append($result, $value, $separator);
+    }
+  }
+
+  @return if(list.length($result) == 1, list.nth($result, 1), $result);
+}
+
+@function strip-units($number) {
+  @return calc($number / ($number * 0 + 1));
+}

@@ -1,12 +1,11 @@
 <script setup lang="ts">
-    import HomePage from 'route/home/HomePage.vue';
+    import UiApp from 'blocks/App/UiApp.vue';
+    import HomeUiPage from 'route/home/HomeUiPage.vue';
 
 </script>
 
 <template>
-    <div class="app">
-        <HomePage />
-    </div>
+    <UiApp>
+        <HomeUiPage />
+    </UiApp>
 </template>
-
-<style src="./styles/app.scss" lang="scss"></style>
