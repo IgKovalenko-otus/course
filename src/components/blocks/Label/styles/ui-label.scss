@@ -1,0 +1,11 @@
+.ui-label {
+  display: flex;
+
+  &--gap-size-xxs {
+    gap: em(5, $fz);
+  }
+
+  &--gap-size-xs {
+    gap: em(10, $fz);
+  }
+}
