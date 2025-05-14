@@ -1,5 +1,5 @@
 export interface IIcon {
     src?: string
-    alt?: string
+    alt: string
     isActive: boolean
 }

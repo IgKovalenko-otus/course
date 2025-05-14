@@ -3,6 +3,7 @@
 
     import type {IIcon} from './logic/types';
 
+    import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiPageContent from 'blocks/Page/Content/UiPageContent.vue';
     import UiPage from 'blocks/Page/UiPage.vue';
 
@@ -29,7 +30,11 @@
         <UiPageContent class="home-ui-page__content">
             <ul class="home-ui-page__list">
                 <li
-                    v-for="({src, alt, isActive}, index) in listIcons"
+                    v-for="({
+                        src,
+                        alt,
+                        isActive
+                    }, index) in listIcons"
                     :key="index"
                     :class="isActive && 'home-ui-page__list-item--is-active'"
                     class="home-ui-page__list-item"
@@ -42,26 +47,29 @@
                 </li>
             </ul>
             <div class="home-ui-page__label">
-                <button
+                <ColorUiButton
                     @click="counter++"
-                    class="home-ui-page__counter"
-                >
-                    Counter {{ counter }}
-                </button>
-                <button
+                    :text-props="{
+                        text: 'Счетчик ' + counter
+                    }"
+                />
+                <ColorUiButton
                     v-if="counter > 0"
                     @click="counter = 0"
-                    class="home-ui-page__counter"
-                >
-                    Clear
-                </button>
+                    :text-props="{
+                        text: 'Сброс'
+                    }"
+                />
             </div>
-            <button
+            <ColorUiButton
                 @click="loading = !loading"
-                class="home-ui-page__counter"
-            >
-                Показать прелоудер
-            </button>
+                :button-props="{
+                    rounded: true
+                }"
+                :text-props="{
+                    text: 'Переключатель прелоудера'
+                }"
+            />
             <img
                 v-show="loading"
                 src="/svg/infinite-spinner.svg"

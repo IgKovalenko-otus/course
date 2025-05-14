@@ -1,0 +1,77 @@
+.ui-text {
+  font-size: var(--ui-text-fz, var(--ui-text-fz-default, inherit));
+  line-height: var(--ui-text-lh, var(--ui-text-lh-default, inherit));
+  color: var(--ui-text-clr, var(--ui-text-clr-default, currentColor));
+
+  &--fw-400 {
+    font-weight: 400;
+  }
+
+  &--fw-500 {
+    font-weight: 500;
+  }
+
+  &--fw-700 {
+    font-weight: 700;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--nowrap {
+    white-space: nowrap;
+  }
+
+  &--ta-center {
+    text-align: center;
+  }
+
+  &--ta-right {
+    text-align: right;
+  }
+
+  &--ta-left {
+    text-align: left;
+  }
+
+  &--size-xxs {
+    $fz: 10;
+    --cbr-text-fz-default: #{em($fz, $fz-base)};
+    --cbr-text-lh-default: #{em(12, $fz)};
+  }
+
+  &--size-xs {
+    $fz: 12;
+    --cbr-text-fz-default: #{em($fz, $fz-base)};
+    --cbr-text-lh-default: #{em(14, $fz)};
+  }
+
+  &--size-s {
+    $fz: 14;
+    --cbr-text-fz-default: #{em($fz, $fz-base)};
+    --cbr-text-lh-default: #{em(16, $fz)};
+  }
+
+  &--size-sm {
+    $fz: 16;
+    --cbr-text-fz-default: #{em($fz, $fz-base)};
+    --cbr-text-lh-default: #{em(18, $fz)};
+  }
+
+  &--size-l {
+    $fz: 20;
+    --cbr-text-fz-default: #{em($fz, $fz-base)};
+    --cbr-text-lh-default: #{em(22, $fz)};
+  }
+
+  &--size-xl {
+    $fz: 24;
+    --cbr-text-fz-default: #{em($fz, $fz-base)};
+    --cbr-text-lh-default: #{em(26, $fz)};
+  }
+
+  &--no-lh {
+    --cbr-text-lh-default: 1;
+  }
+}

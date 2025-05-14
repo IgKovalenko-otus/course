@@ -1,6 +1,9 @@
 {
   "files": [],
   "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "paths": {
       "src/*": ["./src/*"],
       "blocks/*": ["./src/components/blocks/*"],

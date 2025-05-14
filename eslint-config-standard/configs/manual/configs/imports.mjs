@@ -61,7 +61,6 @@ export default [
                         'types$',
                         'handlers',
                         'work',
-                        'oldWorkers',
                         'models',
                     ],
                     ['utils', 'composables'],

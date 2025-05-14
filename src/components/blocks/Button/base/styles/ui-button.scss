@@ -1,0 +1,26 @@
+.ui-button {
+  display: grid;
+
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  &--rounded {
+    border-radius: em(4, $fz);
+  }
+
+  &--size-xs {
+    padding: em(5 15, $fz);
+    min-height: em(25, $fz);
+  }
+
+  &--size-s {
+    padding: em(10 20, $fz);
+    min-height: em(40, $fz);
+  }
+
+  &--size-m {
+    padding: em(15 25, $fz);
+    min-height: em(50, $fz);
+  }
+}
