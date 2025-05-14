@@ -1,0 +1,10 @@
+.ui-page {
+  display: grid;
+  min-height: 100vh;
+
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: $fz + px;
+  font-weight: 400;
+  color: hsl(0, 0%, 0%);
+  overflow: hidden;
+}
