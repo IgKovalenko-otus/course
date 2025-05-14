@@ -14,12 +14,12 @@
     } = defineProps<IUiTextProps>();
 
     const uiTextModifiers = computed<string[]>(() => ([
-        size && `cbr-text--${size}`,
-        align && `cbr-text--${align}`,
-        weight && `cbr-text--${weight}`,
-        uppercase && 'cbr-text--uppercase',
-        noWrap && 'cbr-text--nowrap',
-        noLineHeight && 'cbr-text--no-lh',
+        size && `ui-text--${size}`,
+        align && `ui-text--${align}`,
+        weight && `ui-text--${weight}`,
+        uppercase && 'ui-text--uppercase',
+        noWrap && 'ui-text--nowrap',
+        noLineHeight && 'ui-text--no-lh',
     ].filter((value): value is string => Boolean(value))));
 
 </script>

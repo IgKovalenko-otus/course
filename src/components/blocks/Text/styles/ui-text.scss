@@ -37,41 +37,41 @@
 
   &--size-xxs {
     $fz: 10;
-    --cbr-text-fz-default: #{em($fz, $fz-base)};
-    --cbr-text-lh-default: #{em(12, $fz)};
+    --ui-text-fz-default: #{em($fz, $fz-base)};
+    --ui-text-lh-default: #{em(12, $fz)};
   }
 
   &--size-xs {
     $fz: 12;
-    --cbr-text-fz-default: #{em($fz, $fz-base)};
-    --cbr-text-lh-default: #{em(14, $fz)};
+    --ui-text-fz-default: #{em($fz, $fz-base)};
+    --ui-text-lh-default: #{em(14, $fz)};
   }
 
   &--size-s {
     $fz: 14;
-    --cbr-text-fz-default: #{em($fz, $fz-base)};
-    --cbr-text-lh-default: #{em(16, $fz)};
+    --ui-text-fz-default: #{em($fz, $fz-base)};
+    --ui-text-lh-default: #{em(16, $fz)};
   }
 
   &--size-sm {
     $fz: 16;
-    --cbr-text-fz-default: #{em($fz, $fz-base)};
-    --cbr-text-lh-default: #{em(18, $fz)};
+    --ui-text-fz-default: #{em($fz, $fz-base)};
+    --ui-text-lh-default: #{em(18, $fz)};
   }
 
   &--size-l {
     $fz: 20;
-    --cbr-text-fz-default: #{em($fz, $fz-base)};
-    --cbr-text-lh-default: #{em(22, $fz)};
+    --ui-text-fz-default: #{em($fz, $fz-base)};
+    --ui-text-lh-default: #{em(22, $fz)};
   }
 
   &--size-xl {
     $fz: 24;
-    --cbr-text-fz-default: #{em($fz, $fz-base)};
-    --cbr-text-lh-default: #{em(26, $fz)};
+    --ui-text-fz-default: #{em($fz, $fz-base)};
+    --ui-text-lh-default: #{em(26, $fz)};
   }
 
   &--no-lh {
-    --cbr-text-lh-default: 1;
+    --ui-text-lh-default: 1;
   }
 }

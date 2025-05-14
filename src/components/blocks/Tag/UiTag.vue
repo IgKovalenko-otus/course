@@ -4,7 +4,10 @@
 
     import UiText from 'blocks/Text/UiText.vue';
 
-    const {isActive = false} = defineProps<IUiTagProps>();
+    const {
+        isActive = false,
+        text = '',
+    } = defineProps<IUiTagProps>();
 
 </script>
 
@@ -13,7 +16,10 @@
         :class="isActive && 'ui-tag--is-active'"
         class="ui-tag"
     >
-        <UiText :size="SIZE_S" />
+        <UiText
+            :text="text"
+            :size="SIZE_S"
+        />
     </button>
 </template>
 

@@ -1,5 +1,4 @@
-export interface IIcon {
-    src?: string
-    alt: string
-    isActive: boolean
+export interface IUser {
+    name?: string
+    age?: number
 }
