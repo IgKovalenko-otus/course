@@ -30,4 +30,5 @@
         </div>
     </div>
 </template>
+
 <style src="./styles/ui-product-filter.scss" lang="scss"></style>
