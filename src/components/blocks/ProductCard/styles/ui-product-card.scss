@@ -1,0 +1,40 @@
+.ui-product-card {
+  padding: em(25, $fz);
+
+  background: hsl(0, 0%, 100%);
+  border-radius: em(5, $fz);
+  box-shadow: em(0 4 25 0, $fz) hsla(0, 0%, 0%, 10%);
+
+  transition: transform 0.1s linear;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &__content {
+    display: grid;
+    height: 100%;
+
+    grid-template-rows: auto auto 1fr auto auto;
+
+    grid-gap: em(20, $fz);
+  }
+
+  &__picture {
+    position: relative;
+
+    padding-top: 75%;
+  }
+
+  &__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  &__add {
+    align-items: center;
+    justify-content: space-between;
+  }
+}

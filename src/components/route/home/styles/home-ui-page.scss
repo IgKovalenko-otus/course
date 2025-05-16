@@ -8,11 +8,4 @@
     align-content: flex-start;
     justify-items: center;
   }
-
-  &__list {
-    display: flex;
-
-    flex-wrap: wrap;
-    gap: em(10, $fz);
-  }
 }
