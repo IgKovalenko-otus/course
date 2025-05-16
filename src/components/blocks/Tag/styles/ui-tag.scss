@@ -1,0 +1,27 @@
+.ui-tag {
+  padding: 5px 10px;
+  margin: 5px;
+
+  background: hsl(210, 38%, 95%);
+  border-radius: 25px;
+
+  font-size: 14px;
+  color: hsl(0, 0%, 0%);
+  text-align: center;
+
+  &:hover {
+    background: hsl(216, 15%, 52%);
+
+    color: hsl(0, 0%, 100%);
+  }
+
+  &--is-active {
+    background: hsl(179, 51%, 39%);
+
+    color: hsl(0, 0%, 100%);
+
+    &:hover {
+      background: hsl(179, 51%, 39%);
+    }
+  }
+}

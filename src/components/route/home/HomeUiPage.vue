@@ -1,73 +1,91 @@
 <script setup lang="ts">
     import {ref} from 'vue';
 
-    import type {IIcon} from './logic/types';
+    import {FONT_WEIGHT_BOLD, SIZE_S} from 'src/constants';
+    import type {IUser} from './logic/types';
 
+    import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
+    import UiLabel from 'blocks/Label/UiLabel.vue';
     import UiPageContent from 'blocks/Page/Content/UiPageContent.vue';
     import UiPage from 'blocks/Page/UiPage.vue';
+    import UiTag from 'blocks/Tag/UiTag.vue';
+    import UiText from 'blocks/Text/UiText.vue';
 
-    const counter = ref<number>(0);
-
-    const loading = ref<boolean>(false);
-
-    const listIcons = ref<IIcon[]>([
+    const listUsers = ref<IUser[]>([
         {
-            src: '/svg/vite.svg',
-            alt: 'Vite logo',
-            isActive: false,
+            name: 'Вася',
+            age: 19,
         },
         {
-            src: '/svg/vue.svg',
-            alt: 'Vue logo',
-            isActive: true,
+            name: 'Петя',
+            age: 45,
+        },
+        {
+            name: 'Толя',
+            age: 22,
+        },
+        {
+            name: 'Катя',
+            age: 29,
+        },
+        {
+            name: 'Моли',
+            age: 34,
         },
     ]);
+
+    const selectUserAge = ref<number>(0);
+    const selectUserIndex = ref<number>();
+
+    function selectUser(index: number) {
+        selectUserAge.value = listUsers.value[index].age;
+
+        selectUserIndex.value = index;
+    }
+
+    const isOpenListUsers = ref<boolean>();
+
 </script>
 
 <template>
     <UiPage class="home-ui-page">
         <UiPageContent class="home-ui-page__content">
-            <ul class="home-ui-page__list">
+            <ul
+                v-show="isOpenListUsers"
+                class="home-ui-page__list"
+            >
                 <li
-                    v-for="({src, alt, isActive}, index) in listIcons"
+                    v-for="({name}, index) in listUsers"
                     :key="index"
-                    :class="isActive && 'home-ui-page__list-item--is-active'"
+                    @click="selectUser(index)"
                     class="home-ui-page__list-item"
                 >
-                    <img
-                        :src="src"
-                        :alt="alt"
-                        class="home-ui-page__img"
-                    >
+                    <UiTag
+                        :is-active="selectUserIndex === index"
+                        :text="name"
+                    />
                 </li>
             </ul>
-            <div class="home-ui-page__label">
-                <button
-                    @click="counter++"
-                    class="home-ui-page__counter"
-                >
-                    Counter {{ counter }}
-                </button>
-                <button
-                    v-if="counter > 0"
-                    @click="counter = 0"
-                    class="home-ui-page__counter"
-                >
-                    Clear
-                </button>
-            </div>
-            <button
-                @click="loading = !loading"
-                class="home-ui-page__counter"
-            >
-                Показать прелоудер
-            </button>
-            <img
-                v-show="loading"
-                src="/svg/infinite-spinner.svg"
-                alt="Прелоудер"
-                class="home-ui-page__preloader"
-            >
+            <UiLabel>
+                <UiText
+                    text="Возраст"
+                    :size="SIZE_S"
+                    :weight="FONT_WEIGHT_BOLD"
+                />
+                <UiText
+                    :text="selectUserAge != 0 ? `${selectUserAge}` : 'Пользователь не выбран'"
+                    :size="SIZE_S"
+                />
+            </UiLabel>
+            <ColorUiButton
+                @click="isOpenListUsers = !isOpenListUsers"
+                :button-props="{
+                    rounded: true
+                }"
+                :text-props="{
+                    text: 'Список пользователей'
+                }"
+            />
         </UiPageContent>
     </UiPage>
 </template>

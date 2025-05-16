@@ -3,8 +3,9 @@
   min-height: 100vh;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: $fz + px;
+  font-size: em(16, $fz);
   font-weight: 400;
-  color: hsl(0, 0%, 0%);
+  line-height: em(18, $fz);
+  color: hsl(218, 23%, 23%);
   overflow: hidden;
 }
