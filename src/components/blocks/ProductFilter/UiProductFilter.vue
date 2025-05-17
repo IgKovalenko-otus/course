@@ -88,17 +88,6 @@
                     </template>
                 </div>
             </div>
-            <ColorUiButton
-                :button-props="{
-                    rounded: true,
-                    size: SIZE_S,
-                }"
-                :text-props="{
-                    text: 'фильтр',
-                    uppercase: true,
-                    size: SIZE_XS,
-                }"
-            />
         </div>
         <div class="ui-product-filter__content">
             <div class="ui-product-filter__list">
