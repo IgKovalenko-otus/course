@@ -1,8 +1,10 @@
 <script setup lang="ts">
     import {reactive} from 'vue';
 
+    import {SIZE_S, SIZE_XS} from 'src/constants';
     import products from 'src/mock/products.json';
 
+    import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiProductCard from 'blocks/ProductCard/UiProductCard.vue';
 
     const listProducts = reactive(products);
@@ -11,21 +13,35 @@
 <template>
     <div class="ui-product-filter">
         <div class="ui-product-filter__content">
-            <UiProductCard
-                v-for="{
-                    id,
-                    image,
-                    title,
-                    rating,
-                    description,
-                    price,
-                } in listProducts"
-                :key="id"
-                :image="image"
-                :title="title"
-                :rating="rating"
-                :description="description"
-                :price="price"
+            <div class="ui-product-filter__list">
+                <UiProductCard
+                    v-for="{
+                        id,
+                        image,
+                        title,
+                        rating,
+                        description,
+                        price,
+                    } in listProducts"
+                    :key="id"
+                    :image="image"
+                    :title="title"
+                    :rating="rating"
+                    :description="description"
+                    :price="price"
+                />
+            </div>
+            <ColorUiButton
+                :button-props="{
+                    rounded: true,
+                    size: SIZE_S,
+                }"
+                :text-props="{
+                    text: 'Загрузить ещё',
+                    uppercase: true,
+                    size: SIZE_XS,
+                }"
+                class="ui-product-filter__more"
             />
         </div>
     </div>

@@ -1,14 +1,26 @@
 .ui-product-filter {
   max-width: em(1000, $fz);
+  height: em(1000, $fz);
 
   &__content {
     display: grid;
     padding: em(20, $fz);
-
-    grid-template-columns: em(300, $fz) em(300, $fz) em(300, $fz);
+    height: 100%;
 
     grid-gap: em(20, $fz);
 
     background: hsl(0, 0%, 95%);
+    overflow: auto;
+  }
+
+  &__list {
+    display: grid;
+
+    grid-template-columns: em(300, $fz) em(300, $fz) em(300, $fz);
+    grid-gap: em(20, $fz);
+  }
+
+  &__more {
+    margin: 0 auto;
   }
 }
