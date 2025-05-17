@@ -33,7 +33,7 @@
             />
         </UiLabel>
         <UiText
-            :text="`(${count})`"
+            :text="`Всего оценок (${count})`"
             :size="SIZE_XXS"
             class="ui-product-card-rating__count"
         />

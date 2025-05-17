@@ -10,29 +10,44 @@
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiProductCard from 'blocks/ProductCard/UiProductCard.vue';
+    import UiTag from 'blocks/Tag/UiTag.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
-    const visibleCards = ref<number>(6);
-    const listProducts = ref<[]>(products.slice(0, visibleCards.value));
+    const allProducts = ref(products);
 
-    const maxCountProducts = ref(products.length);
+    const visibleCards = ref<number>(6);
+    const listProducts = ref(allProducts.value.slice(0, visibleCards.value));
+
+    const maxCountProducts = ref(allProducts.value.length);
 
     function showMore(count: number) {
         visibleCards.value += count;
 
-        listProducts.value = products.slice(0, visibleCards.value);
+        listProducts.value = allProducts.value.slice(0, visibleCards.value);
     }
 </script>
 
 <template>
     <div class="ui-product-filter">
         <div class="ui-product-filter__tools">
-            <UiText
-                text="Категории"
-                uppercase
-                :size="SIZE_S"
-                :weight="FONT_WEIGHT_BOLD"
-            />
+            <div class="ui-product-filter__tools-section">
+                <UiText
+                    text="Категории"
+                    uppercase
+                    :size="SIZE_S"
+                    :weight="FONT_WEIGHT_BOLD"
+                />
+                <div class="ui-product-filter__tools-list">
+                    <UiTag
+                        v-for="({
+                            id,
+                            category,
+                        }) in allProducts"
+                        :key="id"
+                        :text="category"
+                    />
+                </div>
+            </div>
             <ColorUiButton
                 :button-props="{
                     rounded: true,

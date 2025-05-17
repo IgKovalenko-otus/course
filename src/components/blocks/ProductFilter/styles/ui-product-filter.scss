@@ -9,11 +9,24 @@
     display: grid;
     padding: em(20, $fz);
 
-    grid-gap: em(20, $fz);
+    grid-gap: em(50, $fz);
     align-content: flex-start;
 
     border-radius: em(10, $fz);
     box-shadow: em(0 4 25 0, $fz) hsla(0, 0%, 0%, 10%);
+  }
+
+  &__tools-section {
+    display: grid;
+
+    grid-gap: em(20, $fz);
+  }
+
+  &__tools-list {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: em(10, $fz);
   }
 
   &__content {
