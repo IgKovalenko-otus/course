@@ -1,16 +1,13 @@
 .ui-product-filter {
   max-width: em(1000, $fz);
-  height: em(1000, $fz);
 
   &__content {
     display: grid;
     padding: em(20, $fz);
-    height: 100%;
 
     grid-gap: em(20, $fz);
 
     background: hsl(0, 0%, 95%);
-    overflow: auto;
   }
 
   &__list {
