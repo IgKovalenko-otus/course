@@ -1,0 +1,23 @@
+.product-ui-article {
+  display: grid;
+
+  grid-template-columns: 0.5fr 1.5fr;
+
+  grid-auto-flow: column;
+  grid-gap: em(20, $fz);
+
+  &__picture {
+    padding: em(25, $fz);
+
+    border-radius: em(10, $fz);
+    box-shadow: em(0 4 25 0, $fz) hsla(0, 0%, 0%, 10%);
+  }
+
+  &__content {
+    display: grid;
+
+    grid-gap: em(20, $fz);
+    align-content: flex-start;
+    justify-items: flex-start;
+  }
+}

@@ -5,11 +5,9 @@
 </script>
 
 <template>
-    <UiPage class="home-ui-page">
-        <UiPageContent class="home-ui-page__content">
+    <UiPage>
+        <UiPageContent>
             <UiProductFilter />
         </UiPageContent>
     </UiPage>
 </template>
-
-<style src="./styles/home-ui-page.scss" lang="scss"></style>

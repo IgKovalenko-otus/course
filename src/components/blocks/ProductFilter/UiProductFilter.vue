@@ -1,11 +1,16 @@
 <script setup lang="ts">
     import {ref} from 'vue';
 
-    import {SIZE_S, SIZE_XS} from 'src/constants';
+    import {
+        FONT_WEIGHT_BOLD,
+        SIZE_S,
+        SIZE_XS,
+    } from 'src/constants';
     import products from 'src/mock/products.json';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiProductCard from 'blocks/ProductCard/UiProductCard.vue';
+    import UiText from 'blocks/Text/UiText.vue';
 
     const visibleCards = ref<number>(6);
     const listProducts = ref<[]>(products.slice(0, visibleCards.value));
@@ -21,6 +26,25 @@
 
 <template>
     <div class="ui-product-filter">
+        <div class="ui-product-filter__tools">
+            <UiText
+                text="Категории"
+                uppercase
+                :size="SIZE_S"
+                :weight="FONT_WEIGHT_BOLD"
+            />
+            <ColorUiButton
+                :button-props="{
+                    rounded: true,
+                    size: SIZE_S,
+                }"
+                :text-props="{
+                    text: 'фильтр',
+                    uppercase: true,
+                    size: SIZE_XS,
+                }"
+            />
+        </div>
         <div class="ui-product-filter__content">
             <div class="ui-product-filter__list">
                 <UiProductCard
@@ -42,7 +66,7 @@
             </div>
             <ColorUiButton
                 v-if="listProducts.length < maxCountProducts"
-                @click="showMore(6)"
+                @click="showMore(3)"
                 :button-props="{
                     rounded: true,
                     size: SIZE_S,

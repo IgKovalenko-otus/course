@@ -7,7 +7,7 @@
 
 <template>
     <UiApp>
-        <ProductUiPage />
         <HomeUiPage />
+        <ProductUiPage />
     </UiApp>
 </template>
