@@ -1,0 +1,39 @@
+.ui-picture {
+  $self: &;
+  user-select: none;
+
+  &__img {
+    max-width: var(--ui-picture-img-max-width, 100%);
+    height: var(--ui-picture-img-height, auto);
+    max-height: var(--ui-picture-img-max-height, auto);
+    margin: 0 auto;
+    user-select: none;
+    object-fit: var(--ui-picture-img-object-fit, contain);
+    object-position: var(--ui-picture-img-object-position, center);
+
+    border-radius: var(--ui-picture-border-radius);
+  }
+
+  &--is-absolute {
+    #{$self} {
+      &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &--is-cover {
+    #{$self} {
+      &__img {
+        --ui-picture-img-object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

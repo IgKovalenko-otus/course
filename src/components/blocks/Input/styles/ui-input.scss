@@ -1,0 +1,19 @@
+.ui-input {
+  $fz: 12;
+  padding: em(0 10, $fz);
+
+  font-size: em($fz, $fz_base);
+  color: currentColor;
+  text-align: inherit;
+  text-overflow: ellipsis;
+
+  &::placeholder {
+    opacity: 0.7;
+
+    color: currentColor;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}

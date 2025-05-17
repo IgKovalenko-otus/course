@@ -1,0 +1,16 @@
+.product-ui-article {
+  display: grid;
+
+  grid-template-columns: 0.5fr 1.5fr;
+
+  grid-auto-flow: column;
+  grid-gap: em(20, $fz);
+
+  &__content {
+    display: grid;
+
+    grid-gap: em(20, $fz);
+    align-content: flex-start;
+    justify-items: flex-start;
+  }
+}

@@ -25,14 +25,14 @@
 </script>
 
 <template>
-    <div
+    <span
         :class="uiTextModifiers"
         class="ui-text"
     >
         <slot>
             {{ text }}
         </slot>
-    </div>
+    </span>
 </template>
 
 <style src="./styles/ui-text.scss" lang="scss"></style>

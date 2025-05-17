@@ -1,13 +1,11 @@
 .ui-tag {
-  padding: 5px 10px;
-  margin: 5px;
+  display: flex;
+  padding: em(5 10, $fz);
 
   background: hsl(210, 38%, 95%);
-  border-radius: 25px;
+  border-radius: em(25, $fz);
 
-  font-size: 14px;
   color: hsl(0, 0%, 0%);
-  text-align: center;
 
   &:hover {
     background: hsl(216, 15%, 52%);

@@ -1,11 +1,14 @@
 .ui-page {
   display: grid;
+
   min-height: 100vh;
+
+  align-content: flex-start;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: em(16, $fz);
   font-weight: 400;
   line-height: em(18, $fz);
   color: hsl(218, 23%, 23%);
-  overflow: hidden;
+  contain: paint;
 }

@@ -1,0 +1,45 @@
+.ui-page-header {
+  background: linear-gradient(0deg, hsl(179, 64%, 37%), hsl(177, 61%, 46%));
+
+  &__content {
+    display: grid;
+    padding: em(0 20, $fz);
+    max-width: em(1400, $fz);
+    height: em(70, $fz);
+    margin: 0 auto;
+
+    grid-auto-flow: column;
+
+    grid-gap: em(50, $fz);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    gap: em(20, $fz);
+
+    align-items: center;
+  }
+
+  &__nav-button {
+    border-radius: em(25, $fz);
+  }
+
+  &__registration {
+    display: flex;
+    padding: em(10 20, $fz);
+    min-height: em(40, $fz);
+
+    background: hsl(0, 0%, 100%);
+    border-radius: em(25, $fz);
+    box-shadow: 0 0 em(10, $fz) 0 hsl(0, 0%, 100%);
+
+    color: hsl(218, 23%, 23%);
+    transition: box-shadow 0.2s linear;
+
+    &:hover {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+}

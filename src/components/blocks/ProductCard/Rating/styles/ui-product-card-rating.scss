@@ -1,0 +1,19 @@
+.ui-product-card-rating {
+  align-items: center;
+
+  &__star {
+    width: em(20, $fz);
+  }
+
+  &__count {
+    color: hsl(0, 0%, 50%);
+  }
+
+  &__value {
+    color: hsl(0, 0%, 0%);
+  }
+
+  &__label {
+    align-items: center;
+  }
+}

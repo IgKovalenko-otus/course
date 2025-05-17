@@ -1,0 +1,7 @@
+.ui-frame {
+  padding: em(25, $fz);
+
+  background: hsl(0, 0%, 100%);
+  border-radius: em(5, $fz);
+  box-shadow: em(0 4 25 0, $fz) hsla(0, 0%, 0%, 10%);
+}
