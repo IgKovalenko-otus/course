@@ -9,6 +9,9 @@
     import products from 'src/mock/products.json';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
+    import UiField from 'blocks/Field/UiField.vue';
+    import UiFrame from 'blocks/Frame/UiFrame.vue';
+    import UiInput from 'blocks/Input/UiInput.vue';
     import UiProductCard from 'blocks/ProductCard/UiProductCard.vue';
     import UiTag from 'blocks/Tag/UiTag.vue';
     import UiText from 'blocks/Text/UiText.vue';
@@ -66,7 +69,7 @@
 
 <template>
     <div class="ui-product-filter">
-        <div class="ui-product-filter__tools">
+        <UiFrame class="ui-product-filter__tools">
             <div class="ui-product-filter__tools-section">
                 <UiText
                     text="Категории"
@@ -88,8 +91,11 @@
                     </template>
                 </div>
             </div>
-        </div>
+        </UiFrame>
         <div class="ui-product-filter__content">
+            <UiField>
+                <UiInput placeholder="Поиск" />
+            </UiField>
             <div class="ui-product-filter__list">
                 <UiProductCard
                     v-for="{

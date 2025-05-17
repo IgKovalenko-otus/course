@@ -10,14 +10,10 @@
     top: em(20, $fz);
 
     display: grid;
-    padding: em(20, $fz);
 
     grid-gap: em(50, $fz);
     align-content: flex-start;
     align-self: start;
-
-    border-radius: em(10, $fz);
-    box-shadow: em(0 4 25 0, $fz) hsla(0, 0%, 0%, 10%);
   }
 
   &__tools-section {

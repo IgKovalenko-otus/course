@@ -4,9 +4,10 @@
         SIZE_S,
         SIZE_XS,
     } from 'src/constants';
-    import type {IUiProductCardProps} from './logic/types';
+    import type {IUiProductCardProps} from './logic/props';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
+    import UiFrame from 'blocks/Frame/UiFrame.vue';
     import UiLabel from 'blocks/Label/UiLabel.vue';
     import UiPicture from 'blocks/Picture/UiPicture.vue';
     import ProductCardRating from 'blocks/ProductCard/Rating/ProductCardRating.vue';
@@ -28,7 +29,7 @@
         target="_blank"
         class="ui-product-card"
     >
-        <div class="ui-product-card__content">
+        <UiFrame class="ui-product-card__content">
             <div class="ui-product-card__picture">
                 <UiPicture
                     is-absolute
@@ -68,7 +69,7 @@
                     }"
                 />
             </UiLabel>
-        </div>
+        </UiFrame>
     </a>
 </template>
 

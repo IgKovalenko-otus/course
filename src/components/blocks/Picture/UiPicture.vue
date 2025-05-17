@@ -6,7 +6,7 @@
     } from 'vue';
     import {preload} from 'vue-onload';
 
-    import type {IUiPictureProps} from './logic/types';
+    import type {IUiPictureProps} from './logic/props';
 
     import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
 

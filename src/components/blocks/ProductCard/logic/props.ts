@@ -1,4 +1,4 @@
-import {IProductCardRatingProps} from "blocks/ProductCard/Rating/logic/types";
+import {IProductCardRatingProps} from "blocks/ProductCard/Rating/logic/props";
 
 export interface IUiProductCardProps {
   id?: number

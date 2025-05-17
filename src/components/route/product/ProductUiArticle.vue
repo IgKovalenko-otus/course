@@ -10,6 +10,7 @@
 
     import UiArticle from 'blocks/Article/UiArticle.vue';
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
+    import UiFrame from 'blocks/Frame/UiFrame.vue';
     import UiPicture from 'blocks/Picture/UiPicture.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
@@ -18,14 +19,14 @@
 
 <template>
     <UiArticle class="product-ui-article">
-        <div class="product-ui-article__picture">
+        <UiFrame class="product-ui-article__picture">
             <UiPicture
                 :src="test.image"
                 :alt="test.title"
                 stub="/svg/card-picture-stub.svg"
             />
-        </div>
-        <div class="product-ui-article__content">
+        </UiFrame>
+        <UiFrame class="product-ui-article__content">
             <UiText
                 :text="test.title"
                 :size="SIZE_XL"
@@ -52,7 +53,7 @@
                     size: SIZE_S,
                 }"
             />
-        </div>
+        </UiFrame>
     </UiArticle>
 </template>
 

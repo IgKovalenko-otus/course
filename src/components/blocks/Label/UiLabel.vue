@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import {SIZE_XS} from 'src/constants';
-    import type {IUiLabelProps} from './logic/types';
+    import type {IUiLabelProps} from './logic/prop';
 
     const {gapSize = SIZE_XS} = defineProps<IUiLabelProps>();
 

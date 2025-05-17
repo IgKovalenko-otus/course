@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import {SIZE_XXS} from 'src/constants';
-    import type {IProductCardRatingProps} from './logic/types';
+    import type {IProductCardRatingProps} from './logic/props';
 
     import UiLabel from 'blocks/Label/UiLabel.vue';
     import UiText from 'blocks/Text/UiText.vue';
