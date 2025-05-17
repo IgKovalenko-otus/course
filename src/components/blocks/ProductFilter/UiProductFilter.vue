@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import {ref} from 'vue';
+    import {onMounted, ref} from 'vue';
 
     import {
         FONT_WEIGHT_BOLD,
@@ -15,16 +15,53 @@
 
     const allProducts = ref(products);
 
+    const activeCategory = ref<number>();
+
+    const listCategory = ref<string[]>([]);
+
     const visibleCards = ref<number>(6);
     const listProducts = ref(allProducts.value.slice(0, visibleCards.value));
 
     const maxCountProducts = ref(allProducts.value.length);
 
+    function updateCategory() {
+        // обнулили категории
+        listCategory.value = [];
+
+        // запушили в новый массив все категории
+        listProducts.value.filter((product) => listCategory.value.push(product.category));
+
+        // удалили одинаковые категории
+        listCategory.value = listCategory.value.filter((item, index) => listCategory.value.indexOf(item) === index);
+    }
+
     function showMore(count: number) {
+        // докинули новых карточек
         visibleCards.value += count;
 
+        // новый список карточек
         listProducts.value = allProducts.value.slice(0, visibleCards.value);
+
+        // обновление категорий по новому списку из карточек
+        updateCategory();
+
+        // скинули категории
+        activeCategory.value = undefined;
     }
+
+    function filterByCategory(value: string, index: number) {
+        activeCategory.value = index;
+
+        // обновили массив после прошлой фильтрации
+        listProducts.value = allProducts.value.slice(0, visibleCards.value);
+
+        // фильтруем продукты по категории
+        listProducts.value = listProducts.value.filter((product) => product.category === value);
+    }
+
+    onMounted(() => {
+        updateCategory();
+    });
 </script>
 
 <template>
@@ -38,14 +75,17 @@
                     :weight="FONT_WEIGHT_BOLD"
                 />
                 <div class="ui-product-filter__tools-list">
-                    <UiTag
-                        v-for="({
-                            id,
-                            category,
-                        }) in allProducts"
-                        :key="id"
-                        :text="category"
-                    />
+                    <template
+                        v-for="(item, index) in listCategory"
+                        :key="item"
+                    >
+                        <UiTag
+                            v-if="item"
+                            @click="filterByCategory(item, index)"
+                            :is-active="activeCategory === index"
+                            :text="item"
+                        />
+                    </template>
                 </div>
             </div>
             <ColorUiButton
