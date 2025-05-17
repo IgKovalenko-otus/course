@@ -14,10 +14,10 @@
 
     const {
         image,
-        title,
+        title = 'Нет заголовка',
         rating,
-        description,
-        price,
+        description = 'Нет описания',
+        price = 0,
     } = defineProps<IUiProductCardProps>();
 
 </script>
@@ -38,8 +38,8 @@
                 />
             </div>
             <ProductCardRating
-                :rate="rating.rate"
-                :count="rating.count"
+                :rate="rating?.rate"
+                :count="rating?.count"
             />
             <UiText
                 :text="title"
