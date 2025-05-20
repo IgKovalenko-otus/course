@@ -1,6 +1,6 @@
 <script setup lang="ts">
-    import {SIZE_S} from 'src/constants';
-    import type {IUiTagProps} from './logic/types';
+    import {SIZE_S, TEXT_ALIGN_CENTER} from 'src/constants';
+    import type {IUiTagProps} from './logic/props';
 
     import UiText from 'blocks/Text/UiText.vue';
 
@@ -19,6 +19,7 @@
         <UiText
             :text="text"
             :size="SIZE_S"
+            :align="TEXT_ALIGN_CENTER"
         />
     </button>
 </template>

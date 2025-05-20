@@ -1,0 +1,10 @@
+.ui-page-content {
+  display: grid;
+  padding: em(20, $fz);
+  max-width: em(1400, $fz);
+  margin: 0 auto;
+
+  grid-gap: em(20, $fz);
+  align-content: flex-start;
+  justify-items: center;
+}

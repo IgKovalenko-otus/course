@@ -1,0 +1,52 @@
+.ui-product-filter {
+  display: grid;
+
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-auto-flow: column;
+  grid-gap: em(20, $fz);
+
+  &__tools {
+    position: sticky;
+    top: em(20, $fz);
+
+    display: grid;
+
+    grid-gap: em(50, $fz);
+    align-content: flex-start;
+    align-self: start;
+  }
+
+  &__tools-section {
+    display: grid;
+
+    grid-gap: em(20, $fz);
+  }
+
+  &__tools-list {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: em(10, $fz);
+  }
+
+  &__content {
+    display: grid;
+    padding: em(20, $fz);
+
+    grid-gap: em(20, $fz);
+    align-content: flex-start;
+
+    background: hsl(0, 0%, 95%);
+  }
+
+  &__list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: em(20, $fz);
+  }
+
+  &__more {
+    margin: 0 auto;
+  }
+}

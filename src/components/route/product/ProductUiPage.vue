@@ -1,13 +1,13 @@
 <script setup lang="ts">
     import UiPageContent from 'blocks/Page/Content/UiPageContent.vue';
     import UiPage from 'blocks/Page/UiPage.vue';
-    import UiProductFilter from 'blocks/ProductFilter/UiProductFilter.vue';
+    import ProductUiArticle from 'route/product/ProductUiArticle.vue';
 </script>
 
 <template>
     <UiPage>
         <UiPageContent>
-            <UiProductFilter />
+            <ProductUiArticle />
         </UiPageContent>
     </UiPage>
 </template>
