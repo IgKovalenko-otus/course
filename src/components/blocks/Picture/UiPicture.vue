@@ -30,6 +30,7 @@
         <slot></slot>
         <img
             v-if="loaded === false"
+            v-show="false"
             @load="loaded = true"
             :src="src"
             alt="Дубль для проверкии загрузки"
