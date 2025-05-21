@@ -1,10 +1,5 @@
 <script setup lang="ts">
-    import {
-        computed,
-        onMounted,
-        ref,
-    } from 'vue';
-    import {preload} from 'vue-onload';
+    import {computed, ref} from 'vue';
 
     import type {IUiPictureProps} from './logic/props';
 
@@ -25,16 +20,6 @@
 
     const loaded = ref(false);
 
-    onMounted(() => {
-        loaded.value = false;
-
-        preload([src], (completed) => {
-            if (completed) {
-                loaded.value = true;
-            }
-        });
-    });
-
 </script>
 
 <template>
@@ -43,6 +28,12 @@
         class="ui-picture"
     >
         <slot></slot>
+        <img
+            v-if="loaded === false"
+            @load="loaded = true"
+            :src="src"
+            alt="Дубль для проверкии загрузки"
+        >
         <UiTransitionFadeIn>
             <img
                 v-if="loaded"
