@@ -12,6 +12,7 @@
     import UiField from 'blocks/Field/UiField.vue';
     import UiFrame from 'blocks/Frame/UiFrame.vue';
     import UiInput from 'blocks/Input/UiInput.vue';
+    import UiLabel from 'blocks/Label/UiLabel.vue';
     import UiProductCard from 'blocks/ProductCard/UiProductCard.vue';
     import UiTag from 'blocks/Tag/UiTag.vue';
     import UiText from 'blocks/Text/UiText.vue';
@@ -70,6 +71,22 @@
 <template>
     <div class="ui-product-filter">
         <UiFrame class="ui-product-filter__tools">
+            <div class="ui-product-filter__tools-section">
+                <UiText
+                    text="Цена"
+                    uppercase
+                    :size="SIZE_S"
+                    :weight="FONT_WEIGHT_BOLD"
+                />
+                <UiLabel>
+                    <UiField>
+                        <UiInput placeholder="от" />
+                    </UiField>
+                    <UiField>
+                        <UiInput placeholder="до" />
+                    </UiField>
+                </UiLabel>
+            </div>
             <div class="ui-product-filter__tools-section">
                 <UiText
                     text="Категории"

@@ -1,0 +1,29 @@
+.basket-ui-page {
+  &__content {
+    display: grid;
+
+    grid-template-columns: em(580, $fz) em(500, $fz);
+
+    grid-auto-flow: column;
+    grid-gap: em(20, $fz);
+    align-items: flex-start;
+    justify-items: unset;
+  }
+
+  &__list {
+    display: grid;
+    padding: em(20, $fz);
+
+    grid-auto-flow: column;
+    grid-gap: em(20, $fz);
+    overflow: auto;
+
+    justify-items: center;
+
+    background: hsl(0, 0%, 95%);
+  }
+
+  &__card {
+    width: em(260, $fz);
+  }
+}

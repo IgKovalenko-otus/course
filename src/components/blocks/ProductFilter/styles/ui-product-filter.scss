@@ -11,7 +11,7 @@
 
     display: grid;
 
-    grid-gap: em(50, $fz);
+    grid-gap: em(30, $fz);
     align-content: flex-start;
     align-self: start;
   }
@@ -19,7 +19,7 @@
   &__tools-section {
     display: grid;
 
-    grid-gap: em(20, $fz);
+    grid-gap: em(15, $fz);
   }
 
   &__tools-list {

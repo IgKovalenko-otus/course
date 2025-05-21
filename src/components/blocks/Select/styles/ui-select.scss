@@ -1,0 +1,79 @@
+.ui-select {
+  $fz: 12;
+  display: flex;
+  padding: em(0 15, $fz);
+
+  align-items: center;
+
+  background: none;
+  border: none;
+
+  font-size: em($fz, $fz_base);
+
+  cursor: pointer;
+
+  &:required:invalid {
+    color: gray;
+  }
+
+  &,
+  &::picker(select) {
+    appearance: base-select;
+  }
+
+  &::picker(select) {
+    top: calc(anchor(bottom) + em(5, $fz));
+
+    opacity: 0;
+    border: none;
+
+    transition: all 0.4s allow-discrete;
+  }
+
+  &::picker(select):popover-open {
+    opacity: 1;
+  }
+
+  &::picker-icon {
+    color: hsl(0, 0%, 60%);
+    transition: 0.2s rotate;
+  }
+
+  &:open::picker-icon {
+    rotate: 180deg;
+  }
+
+  &__option {
+    display: flex;
+    padding: em(0 15, $fz);
+    height: em(40, $fz);
+
+    justify-content: flex-start;
+
+    background: hsl(0, 0%, 100%);
+
+    border: 1px solid hsl(0, 0%, 87%);
+
+    transition: 0.2s;
+    gap: em(20, $fz);
+
+    &:not(option:last-of-type) {
+      border-bottom: none;
+    }
+
+    &::checkmark {
+      display: none;
+    }
+
+    &:hover,
+    &:focus {
+      background: hsl(179, 51%, 39%);
+
+      color: hsl(0, 0%, 100%);
+    }
+
+    &[value=""][disabled] {
+      display: none;
+    }
+  }
+}
