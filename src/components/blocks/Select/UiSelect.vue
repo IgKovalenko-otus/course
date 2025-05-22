@@ -1,5 +1,10 @@
 <script setup lang="ts">
+    import type {IUiSelectProps} from './logic/props';
+
+    const {options, placeholder} = defineProps<IUiSelectProps>();
+
     const modelValue = defineModel<string | number>();
+
 </script>
 
 <template>
@@ -13,25 +18,15 @@
             selected
             hidden
         >
-            Страна
+            {{ placeholder }}
         </option>
         <option
-            value="Беларусь"
+            v-for="option in options"
+            :key="option"
+            :value="option"
             class="ui-select__option"
         >
-            Беларусь
-        </option>
-        <option
-            value="Россия"
-            class="ui-select__option"
-        >
-            Россия
-        </option>
-        <option
-            value="Казахстан"
-            class="ui-select__option"
-        >
-            Казахстан
+            {{ option }}
         </option>
     </select>
 </template>

@@ -16,6 +16,8 @@
     import UiSelect from 'blocks/Select/UiSelect.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
+    const countryList = ['Россия', 'Казахстан', 'Беларусь'];
+
     const order = ref<{name: string, email: string, phone: string, country: string, address: string, package: boolean}>({
         name: '',
         email: '',
@@ -55,7 +57,11 @@
             />
         </UiField>
         <UiField>
-            <UiSelect v-model="order.country" />
+            <UiSelect
+                v-model="order.country"
+                :options="countryList"
+                placeholder="Страна"
+            />
         </UiField>
         <UiField>
             <UiInput
