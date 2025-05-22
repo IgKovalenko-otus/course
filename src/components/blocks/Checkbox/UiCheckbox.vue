@@ -1,13 +1,17 @@
 <script setup lang="ts">
     import UiLabel from 'blocks/Label/UiLabel.vue';
+
+    const modelValue = defineModel<boolean>();
+
 </script>
 
 <template>
     <label class="ui-checkbox">
         <UiLabel class="ui-checkbox__label">
             <input
-                class="ui-checkbox__input"
+                v-model="modelValue"
                 type="checkbox"
+                class="ui-checkbox__input"
             >
             <div class="ui-checkbox__bg">
                 <svg

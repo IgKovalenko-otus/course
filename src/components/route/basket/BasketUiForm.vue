@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import {ref} from 'vue';
     import {MaskInput} from 'vue-3-mask';
 
     import {
@@ -14,6 +15,15 @@
     import UiInput from 'blocks/Input/UiInput.vue';
     import UiSelect from 'blocks/Select/UiSelect.vue';
     import UiText from 'blocks/Text/UiText.vue';
+
+    const order = ref<{name: string, email: string, phone: string, country: string, address: string, package: boolean}>({
+        name: '',
+        email: '',
+        phone: '',
+        country: '',
+        address: '',
+        package: false,
+    });
 </script>
 
 <template>
@@ -25,25 +35,35 @@
             :weight="FONT_WEIGHT_BOLD"
         />
         <UiField>
-            <UiInput placeholder="Имя" />
+            <UiInput
+                v-model="order.name"
+                placeholder="Имя"
+            />
         </UiField>
         <UiField>
-            <UiInput placeholder="Email" />
+            <UiInput
+                v-model="order.email"
+                placeholder="Email"
+            />
         </UiField>
         <UiField>
             <MaskInput
+                v-model="order.phone"
                 mask="+7 ### ### ## ##"
                 placeholder="+7"
                 class="ui-input"
             />
         </UiField>
         <UiField>
-            <UiSelect />
+            <UiSelect v-model="order.country" />
         </UiField>
         <UiField>
-            <UiInput placeholder="Адрес" />
+            <UiInput
+                v-model="order.address"
+                placeholder="Адрес"
+            />
         </UiField>
-        <UiCheckbox>
+        <UiCheckbox v-model="order.package">
             <UiText
                 text="Упаковка - 100 ₽"
                 :size="SIZE_XS"

@@ -1,5 +1,12 @@
+<script setup lang="ts">
+    const modelValue = defineModel<string | number>();
+</script>
+
 <template>
-    <select class="ui-select">
+    <select
+        v-model="modelValue"
+        class="ui-select"
+    >
         <option
             value=""
             disabled
@@ -9,19 +16,19 @@
             Страна
         </option>
         <option
-            value="volvo"
+            value="Беларусь"
             class="ui-select__option"
         >
             Беларусь
         </option>
         <option
-            value="audi"
+            value="Россия"
             class="ui-select__option"
         >
             Россия
         </option>
         <option
-            value="audi"
+            value="Казахстан"
             class="ui-select__option"
         >
             Казахстан
