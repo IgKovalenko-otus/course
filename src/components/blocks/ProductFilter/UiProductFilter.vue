@@ -142,6 +142,7 @@
                         :rating="rating"
                         :description="description"
                         :price="price"
+                        :search-text="filter.search"
                     />
                 </div>
                 <UiFrame v-else>

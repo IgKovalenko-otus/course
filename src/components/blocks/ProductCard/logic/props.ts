@@ -6,4 +6,5 @@ export interface IUiProductCardProps {
   description?: string
   image?: string
   rating?: IProductCardRatingProps
+  searchText?: string
 }
