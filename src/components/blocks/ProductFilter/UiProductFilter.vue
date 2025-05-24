@@ -2,7 +2,6 @@
     import {
         computed,
         onMounted,
-        reactive,
         ref,
     } from 'vue';
     import axios from 'axios';
