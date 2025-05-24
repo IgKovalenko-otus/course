@@ -2,6 +2,7 @@
     import {
         computed,
         onMounted,
+        reactive,
         ref,
     } from 'vue';
     import axios from 'axios';
@@ -9,9 +10,11 @@
     import {
         FONT_WEIGHT_BOLD,
         SIZE_S,
+        SIZE_XS,
         TEXT_ALIGN_CENTER,
     } from 'src/constants';
 
+    import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiField from 'blocks/Field/UiField.vue';
     import UiFrame from 'blocks/Frame/UiFrame.vue';
     import UiInput from 'blocks/Input/UiInput.vue';
@@ -21,16 +24,17 @@
     import UiText from 'blocks/Text/UiText.vue';
     import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
 
-    const filter = ref({
+    const getInitialData = () => ({
         search: '',
         category: '',
         minPrice: 0,
         maxPrice: 999999,
     });
 
+    const filter = ref(getInitialData());
+
     const allProducts = ref([]);
     const listCategory = ref<string[]>([]);
-    const activeCategory = ref<number>();
 
     function updateCategory() {
         // обнулили категории
@@ -41,11 +45,6 @@
 
         // удалили одинаковые категории
         listCategory.value = listCategory.value.filter((el, index) => listCategory.value.indexOf(el) === index);
-    }
-
-    function selectCategory(value: string, index: number) {
-        activeCategory.value = index;
-        filter.value.category = value;
     }
 
     const activeListProduct = computed(() => allProducts.value.filter((el) => el.title.toLowerCase().includes(filter.value.search.toLowerCase())
@@ -102,18 +101,30 @@
                 />
                 <div class="ui-product-filter__tools-list">
                     <template
-                        v-for="(item, index) in listCategory"
+                        v-for="item in listCategory"
                         :key="item"
                     >
                         <UiTag
                             v-if="item"
-                            @click="selectCategory(item, index)"
-                            :is-active="activeCategory === index"
+                            @click="filter.category = item"
+                            :is-active="filter.category === item"
                             :text="item"
                         />
                     </template>
                 </div>
             </div>
+            <ColorUiButton
+                @click="Object.assign(filter, getInitialData())"
+                :button-props="{
+                    rounded: true,
+                    size: SIZE_S,
+                }"
+                :text-props="{
+                    text: 'Очистить',
+                    uppercase: true,
+                    size: SIZE_XS,
+                }"
+            />
         </UiFrame>
         <div class="ui-product-filter__content">
             <UiField>
