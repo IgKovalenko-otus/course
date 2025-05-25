@@ -9,6 +9,7 @@
     } from '@vuelidate/validators';
     import {ref} from 'vue';
     import {MaskInput} from 'vue-3-mask';
+    import axios from 'axios';
 
     import {
         FONT_WEIGHT_BOLD,
@@ -21,10 +22,13 @@
     import UiField from 'blocks/Field/UiField.vue';
     import UiForm from 'blocks/Form/UiForm.vue';
     import UiInput from 'blocks/Input/UiInput.vue';
+    import UiMessage from 'blocks/Message/UiMessage.vue';
     import UiSelect from 'blocks/Select/UiSelect.vue';
     import UiText from 'blocks/Text/UiText.vue';
+    import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
 
     const countryList = ['Россия', 'Казахстан', 'Беларусь'];
+    const completedOrder = ref(false);
 
     const order = ref({
         name: '',
@@ -62,7 +66,14 @@
         const result = await formField.value.$validate();
 
         if (result) {
-            alert('111');
+            axios
+                .post('https://httpbin.org/post', order.value)
+                .then((response) => {
+                    completedOrder.value = true;
+
+                    console.log(response.data);
+                })
+                .catch((error) => console.log(error));
         }
     }
 
@@ -128,4 +139,13 @@
             }"
         />
     </UiForm>
+    <teleport to="#app">
+        <UiTransitionFadeIn>
+            <UiMessage
+                v-if="completedOrder"
+                @click="completedOrder = false"
+                text="Заказ оформлен!"
+            />
+        </UiTransitionFadeIn>
+    </teleport>
 </template>

@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <UiApp>
+    <UiApp id="app">
         <HomeUiPage />
         <ProductUiPage />
         <BasketUiPage />
