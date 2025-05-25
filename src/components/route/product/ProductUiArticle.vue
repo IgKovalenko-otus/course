@@ -1,12 +1,13 @@
 <script setup lang="ts">
+    import {onMounted, ref} from 'vue';
+    import axios from 'axios';
+
     import {
         FONT_WEIGHT_BOLD,
         SIZE_L,
-        SIZE_M,
         SIZE_S,
         SIZE_XL,
     } from 'src/constants';
-    import products from 'src/mock/products.json';
 
     import UiArticle from 'blocks/Article/UiArticle.vue';
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
@@ -14,7 +15,22 @@
     import UiPicture from 'blocks/Picture/UiPicture.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
-    const test = products[1];
+    const test = ref({
+        image: '',
+        title: 'Нет заголовка',
+        rating: [],
+        description: 'Нет описания',
+        price: 0,
+    });
+
+    onMounted(() => {
+        axios
+            .get('https://fakestoreapi.com/products/1')
+            .then((response) => {
+                test.value = response.data;
+            })
+            .catch((error) => console.log(error));
+    });
 </script>
 
 <template>
@@ -44,8 +60,7 @@
             />
             <ColorUiButton
                 :button-props="{
-                    rounded: true,
-                    size: SIZE_M,
+                    rounded: true
                 }"
                 :text-props="{
                     text: 'Добавить в корзину',

@@ -1,8 +1,10 @@
 <script setup lang="ts">
     import {useVuelidate} from '@vuelidate/core';
     import {
+        alpha,
         email,
         helpers,
+        minLength,
         required,
     } from '@vuelidate/validators';
     import {ref} from 'vue';
@@ -36,21 +38,20 @@
     const rules = {
         name: {
             required: helpers.withMessage('Обязательное поле', required),
+            alpha: helpers.withMessage('Значение не является алфавитным', alpha),
         },
         email: {
             required: helpers.withMessage('Обязательное поле', required),
-            email,
+            email: helpers.withMessage('Формат поля ***@email.**', email),
         },
         phone: {
             required: helpers.withMessage('Обязательное поле', required),
+            minLength: helpers.withMessage('Минимальное количество цифр 10, без кода +7', minLength(16)),
         },
         country: {
             required: helpers.withMessage('Обязательное поле', required),
         },
         address: {
-            required: helpers.withMessage('Обязательное поле', required),
-        },
-        package: {
             required: helpers.withMessage('Обязательное поле', required),
         },
     };
@@ -67,25 +68,19 @@
             uppercase
             :weight="FONT_WEIGHT_BOLD"
         />
-        <UiField>
+        <UiField :errors="formField.name.$errors">
             <UiInput
                 v-model="formField.name.$model"
                 placeholder="Имя"
             />
         </UiField>
-        <template
-            v-for="error in formField.name.$errors"
-            :key="error"
-        >
-            {{ error.$message }}
-        </template>
-        <UiField>
+        <UiField :errors="formField.email.$errors">
             <UiInput
                 v-model="formField.email.$model"
                 placeholder="Email"
             />
         </UiField>
-        <UiField>
+        <UiField :errors="formField.phone.$errors">
             <MaskInput
                 v-model="formField.phone.$model"
                 mask="+7 ### ### ## ##"
@@ -93,20 +88,20 @@
                 class="ui-input"
             />
         </UiField>
-        <UiField>
+        <UiField :errors="formField.country.$errors">
             <UiSelect
                 v-model="formField.country.$model"
                 :options="countryList"
                 placeholder="Страна"
             />
         </UiField>
-        <UiField>
+        <UiField :errors="formField.address.$errors">
             <UiInput
                 v-model="formField.address.$model"
                 placeholder="Адрес"
             />
         </UiField>
-        <UiCheckbox v-model="formField.package.$model">
+        <UiCheckbox v-model="order.package">
             <UiText
                 text="Упаковка - 100 ₽"
                 :size="SIZE_XS"
