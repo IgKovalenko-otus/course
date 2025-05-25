@@ -1,4 +1,10 @@
 <script setup lang="ts">
+    import {useVuelidate} from '@vuelidate/core';
+    import {
+        email,
+        helpers,
+        required,
+    } from '@vuelidate/validators';
     import {ref} from 'vue';
     import {MaskInput} from 'vue-3-mask';
 
@@ -18,7 +24,7 @@
 
     const countryList = ['Россия', 'Казахстан', 'Беларусь'];
 
-    const order = ref<{name: string, email: string, phone: string, country: string, address: string, package: boolean}>({
+    const order = ref({
         name: '',
         email: '',
         phone: '',
@@ -26,6 +32,31 @@
         address: '',
         package: false,
     });
+
+    const rules = {
+        name: {
+            required: helpers.withMessage('Обязательное поле', required),
+        },
+        email: {
+            required: helpers.withMessage('Обязательное поле', required),
+            email,
+        },
+        phone: {
+            required: helpers.withMessage('Обязательное поле', required),
+        },
+        country: {
+            required: helpers.withMessage('Обязательное поле', required),
+        },
+        address: {
+            required: helpers.withMessage('Обязательное поле', required),
+        },
+        package: {
+            required: helpers.withMessage('Обязательное поле', required),
+        },
+    };
+
+    const formField = useVuelidate(rules, order);
+
 </script>
 
 <template>
@@ -38,19 +69,25 @@
         />
         <UiField>
             <UiInput
-                v-model="order.name"
+                v-model="formField.name.$model"
                 placeholder="Имя"
             />
         </UiField>
+        <template
+            v-for="error in formField.name.$errors"
+            :key="error"
+        >
+            {{ error.$message }}
+        </template>
         <UiField>
             <UiInput
-                v-model="order.email"
+                v-model="formField.email.$model"
                 placeholder="Email"
             />
         </UiField>
         <UiField>
             <MaskInput
-                v-model="order.phone"
+                v-model="formField.phone.$model"
                 mask="+7 ### ### ## ##"
                 placeholder="+7"
                 class="ui-input"
@@ -58,18 +95,18 @@
         </UiField>
         <UiField>
             <UiSelect
-                v-model="order.country"
+                v-model="formField.country.$model"
                 :options="countryList"
                 placeholder="Страна"
             />
         </UiField>
         <UiField>
             <UiInput
-                v-model="order.address"
+                v-model="formField.address.$model"
                 placeholder="Адрес"
             />
         </UiField>
-        <UiCheckbox v-model="order.package">
+        <UiCheckbox v-model="formField.package.$model">
             <UiText
                 text="Упаковка - 100 ₽"
                 :size="SIZE_XS"
