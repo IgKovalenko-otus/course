@@ -38,7 +38,7 @@
     const rules = {
         name: {
             required: helpers.withMessage('Обязательное поле', required),
-            alpha: helpers.withMessage('Значение не является алфавитным', alpha),
+            alpha: helpers.withMessage('Значение не является алфавитным, язык: en', alpha),
         },
         email: {
             required: helpers.withMessage('Обязательное поле', required),
@@ -57,6 +57,14 @@
     };
 
     const formField = useVuelidate(rules, order);
+
+    async function submit() {
+        const result = await formField.value.$validate();
+
+        if (result) {
+            alert('111');
+        }
+    }
 
 </script>
 
@@ -108,6 +116,7 @@
             />
         </UiCheckbox>
         <ColorUiButton
+            @click="submit()"
             :button-props="{
                 rounded: true,
                 size: SIZE_S,
