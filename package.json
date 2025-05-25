@@ -9,14 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13",
-    "prettier": "^3.2.5",
-    "stylelint": "^16.16.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-order": "^6.0.4",
-    "stylelint-prettier": "^5.0.0",
-    "stylelint-scss": "^6.11.1",
-    "stylelint-selector-bem-pattern": "^4.0.0",
     "@eslint/compat": "^1.2.7",
     "@eslint/js": "^9.23.0",
     "@nuxt/eslint-config": "1.2.0",
@@ -25,6 +17,9 @@
     "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@typescript-eslint/parser": "^8.28.0",
     "@vue/eslint-config-typescript": "^14.5.0",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
+    "axios": "^1.9.0",
     "eslint": "9.24.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-import-resolver-typescript": "^4.2.3",
@@ -34,9 +29,19 @@
     "eslint-plugin-typescript": "^0.14.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^16.0.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.16.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.0",
+    "stylelint-scss": "^6.11.1",
+    "stylelint-selector-bem-pattern": "^4.0.0",
     "typescript-eslint": "^8.28.0",
+    "vue": "^3.5.13",
+    "vue-3-mask": "^0.0.1-alpha",
+    "vue-axios": "^3.5.2",
     "vue-eslint-parser": "10.1.1",
-    "vue-onload": "^3.1.0"
+    "vue-word-highlighter": "^1.2.5"
   },
   "devDependencies": {
     "@types/node": "^22.15.17",
@@ -46,5 +51,6 @@
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vue-tsc": "^2.2.8"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

@@ -6,7 +6,7 @@
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
-    const listNavigation = ref<string[]>(['Home', 'Basket']);
+    const listNavigation = ref<string[]>(['Home', 'Basket', 'Admin']);
 </script>
 
 <template>

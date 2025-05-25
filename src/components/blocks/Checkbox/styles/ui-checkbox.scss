@@ -1,0 +1,37 @@
+.ui-checkbox {
+  $self: &;
+  cursor: pointer;
+  user-select: none;
+
+  &__label {
+    align-items: center;
+  }
+
+  &__bg {
+    padding: em(4, $fz);
+    width: em(20, $fz);
+    height: em(20, $fz);
+
+    background: var(--ui-checkbox-bg-clr, hsl(210, 38%, 95%));
+    border-radius: 50%;
+
+    color: var(--ui-checkbox-clr, hsl(210, 38%, 95%));
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked + #{$self}__bg {
+    --ui-checkbox-bg-clr: hsl(179, 51%, 39%);
+    --ui-checkbox-clr: hsl(0, 0%, 100%);
+
+    svg {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    opacity: 0;
+  }
+}

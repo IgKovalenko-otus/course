@@ -10,8 +10,6 @@
         readonly = false,
     } = defineProps<IInputProps>();
 
-    defineEmits(['focus', 'blur']);
-
     const modelValue = defineModel<string | number>();
 
 </script>
@@ -19,8 +17,6 @@
 <template>
     <input
         v-model="modelValue"
-        @focus="$emit('focus')"
-        @blur="$emit('blur')"
         :placeholder
         :autofocus
         :disabled
