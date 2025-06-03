@@ -1,4 +1,6 @@
 <script setup lang="ts">
+    import WordHighlighter from 'vue-word-highlighter';
+
     import {
         FONT_WEIGHT_BOLD,
         SIZE_S,
@@ -20,7 +22,6 @@
         description = 'Нет описания',
         price = 0,
     } = defineProps<IUiProductCardProps>();
-
 </script>
 
 <template>
@@ -43,11 +44,11 @@
                 :count="rating?.count"
             />
             <UiText
-                :text="title"
                 :size="SIZE_S"
                 :weight="FONT_WEIGHT_BOLD"
-                class="ui-product-card__title"
-            />
+            >
+                <WordHighlighter :query="searchText"> {{ title }} </WordHighlighter>
+            </UiText>
             <UiText
                 :text="description"
                 :size="SIZE_XS"

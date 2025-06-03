@@ -1,4 +1,22 @@
 .ui-field {
-  display: flex;
-  padding: em(15, $fz);
+  display: grid;
+
+  grid-gap: em(5, $fz);
+
+  &__content {
+    display: grid;
+    padding: 0;
+    min-height: em(40, $fz);
+  }
+
+  &__errors {
+    display: grid;
+    padding: em(10, $fz);
+
+    grid-gap: em(5, $fz);
+
+    border-bottom: 1px solid hsl(0, 82%, 54%);
+
+    color: hsl(0, 82%, 54%);
+  }
 }
