@@ -1,10 +1,12 @@
 .product-ui-article {
   display: grid;
+  width: 100%;
 
   grid-template-columns: 0.5fr 1.5fr;
 
   grid-auto-flow: column;
   grid-gap: em(20, $fz);
+  align-items: flex-start;
 
   &__content {
     display: grid;

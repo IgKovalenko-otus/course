@@ -139,7 +139,7 @@
             }"
         />
     </UiForm>
-    <teleport to="#app">
+    <teleport to="#ui-app">
         <UiTransitionFadeIn>
             <UiMessage
                 v-if="completedOrder"

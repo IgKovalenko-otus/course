@@ -147,6 +147,7 @@
                             price,
                         } in activeListProduct"
                         :key="id"
+                        :product-id="id"
                         :image="image"
                         :title="title"
                         :rating="rating"

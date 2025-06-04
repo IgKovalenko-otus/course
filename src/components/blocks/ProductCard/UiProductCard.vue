@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import {useRouter} from 'vue-router';
     import WordHighlighter from 'vue-word-highlighter';
 
     import {
@@ -15,7 +16,10 @@
     import ProductCardRating from 'blocks/ProductCard/Rating/ProductCardRating.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
+    const router = useRouter();
+
     const {
+        productId = 0,
         image,
         title = 'Нет заголовка',
         rating,
@@ -25,9 +29,8 @@
 </script>
 
 <template>
-    <a
-        href="#"
-        target="_blank"
+    <div
+        @click="router.push(`/product/${productId}`)"
         class="ui-product-card"
     >
         <UiFrame class="ui-product-card__content">
@@ -47,7 +50,9 @@
                 :size="SIZE_S"
                 :weight="FONT_WEIGHT_BOLD"
             >
-                <WordHighlighter :query="searchText"> {{ title }} </WordHighlighter>
+                <WordHighlighter :query="searchText">
+                    {{ title }}
+                </WordHighlighter>
             </UiText>
             <UiText
                 :text="description"
@@ -71,7 +76,7 @@
                 />
             </UiLabel>
         </UiFrame>
-    </a>
+    </div>
 </template>
 
 <style src="./styles/ui-product-card.scss" lang="scss"></style>

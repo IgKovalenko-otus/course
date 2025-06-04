@@ -1,4 +1,6 @@
 .ui-product-card {
+  cursor: pointer;
+
   transition: transform 0.1s linear;
 
   &:hover {
