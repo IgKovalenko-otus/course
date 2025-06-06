@@ -15,6 +15,7 @@
 <template>
     <UiButton
         v-bind="buttonProps"
+        :class="isActive && 'color-ui-button--is-active'"
         class="color-ui-button"
     >
         <slot>

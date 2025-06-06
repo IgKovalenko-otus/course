@@ -14,10 +14,6 @@
             text: 'Basket',
             link: '/basket',
         },
-        {
-            text: 'Admin',
-            link: '/admin',
-        },
     ]);
 </script>
 

@@ -16,6 +16,7 @@
         SIZE_S,
         SIZE_XS,
     } from 'src/constants';
+    import type {IOrder} from './logic/types';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiCheckbox from 'blocks/Checkbox/UiCheckbox.vue';
@@ -28,9 +29,9 @@
     import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
 
     const countryList = ['Россия', 'Казахстан', 'Беларусь'];
-    const completedOrder = ref(false);
+    const completedOrder = ref<boolean>(false);
 
-    const order = ref({
+    const order = ref<IOrder>({
         name: '',
         email: '',
         phone: '',

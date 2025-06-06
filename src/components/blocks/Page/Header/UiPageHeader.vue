@@ -1,13 +1,11 @@
 <script setup lang="ts">
-    import {ref} from 'vue';
+    import {inject, ref} from 'vue';
 
     import {SIZE_XS} from 'src/constants';
     import type {IUiListNavigationItem} from './logic/types';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiText from 'blocks/Text/UiText.vue';
-    import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
-    import LoginUiModal from 'route/home/authentication/LoginUiModal.vue';
 
     const listNavigation = ref<IUiListNavigationItem[]>([
         {
@@ -20,7 +18,7 @@
         },
     ]);
 
-    const loginModal = ref<boolean>(false);
+    const loginModal = inject('loginModal');
 </script>
 
 <template>
@@ -28,12 +26,14 @@
         <div class="ui-page-header__content">
             <nav class="ui-page-header__nav">
                 <RouterLink
+                    v-slot="{isActive}"
                     v-for="({text, link}, index) in listNavigation"
                     :key="index"
                     :to="link"
                     class="ui-page-header__nav-button"
                 >
                     <ColorUiButton
+                        :is-active="isActive"
                         :text-props="{
                             text: text,
                             size: SIZE_XS,
@@ -43,6 +43,7 @@
                 </RouterLink>
             </nav>
             <button
+                v-if="$route.name === 'home'"
                 @click="loginModal = true"
                 class="ui-page-header__login"
             >
@@ -54,15 +55,6 @@
             </button>
         </div>
     </header>
-    <Teleport to="#ui-app">
-        <UiTransitionFadeIn>
-            <LoginUiModal
-                v-show="loginModal"
-                @click="loginModal = false"
-                :show-content="loginModal"
-            />
-        </UiTransitionFadeIn>
-    </Teleport>
 </template>
 
 <style src="./styles/ui-page-header.scss" lang="scss"></style>
