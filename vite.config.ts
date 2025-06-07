@@ -16,6 +16,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'src': fileURLToPath(new URL('./src', import.meta.url)),
+      'composables': fileURLToPath(new URL('./src/composables', import.meta.url)),
       'blocks': fileURLToPath(new URL('./src/components/blocks', import.meta.url)),
       'route': fileURLToPath(new URL('./src/components/route', import.meta.url)),
     }

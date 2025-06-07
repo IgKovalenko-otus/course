@@ -1,25 +1,17 @@
 <script setup lang="ts">
-    import {inject, ref} from 'vue';
+    import {inject} from 'vue';
     import {useRoute} from 'vue-router';
 
     import {SIZE_XS} from 'src/constants';
-    import type {IUiListNavigationItem} from './logic/types';
+
+    import {useNavigation} from 'composables/useNavigation';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
     const route = useRoute();
 
-    const listNavigation = ref<IUiListNavigationItem[]>([
-        {
-            text: 'Home',
-            link: '/',
-        },
-        {
-            text: 'Basket',
-            link: '/basket',
-        },
-    ]);
+    const {listNavigation} = useNavigation();
 
     const loginModal = inject('loginModal');
     const {cartAddedCount} = inject('cart', undefined);
@@ -32,9 +24,9 @@
             <nav class="ui-page-header__nav">
                 <RouterLink
                     v-slot="{isActive}"
-                    v-for="({text, link}, index) in listNavigation"
+                    v-for="({text, to}, index) in listNavigation"
                     :key="index"
-                    :to="link"
+                    :to="to"
                     class="ui-page-header__nav-button"
                 >
                     <ColorUiButton

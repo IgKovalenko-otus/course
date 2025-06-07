@@ -1,32 +1,21 @@
 <script setup lang="ts">
-    import {ref} from 'vue';
+    import {useNavigation} from 'composables/useNavigation';
 
     import UiText from 'blocks/Text/UiText.vue';
 
-    import type {IUiListNavigationItem} from 'blocks/Page/Header/logic/types';
-
-    const listNavigation = ref<IUiListNavigationItem[]>([
-        {
-            text: 'Home',
-            link: '/',
-        },
-        {
-            text: 'Basket',
-            link: '/basket',
-        },
-    ]);
+    const {listNavigation} = useNavigation();
 </script>
 
 <template>
     <footer class="ui-page-footer">
         <ul class="ui-page-footer__list">
             <li
-                v-for="({text, link}, index) in listNavigation"
+                v-for="({text, to}, index) in listNavigation"
                 :key="index"
                 class="ui-page-footer__list-item"
             >
                 <RouterLink
-                    :to="link"
+                    :to="to"
                     class="ui-page-footer__link"
                 >
                     <UiText :text="text" />
