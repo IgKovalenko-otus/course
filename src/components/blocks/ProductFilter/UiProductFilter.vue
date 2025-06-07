@@ -63,7 +63,12 @@
             .catch((error) => console.log(error));
     });
 
-    const {addToCart} = inject('cart', undefined);
+    const {
+        addToCart,
+        addCount,
+        removeCount,
+    } = inject('cart', undefined);
+
 </script>
 
 <template>
@@ -121,7 +126,7 @@
                     size: SIZE_S,
                 }"
                 :text-props="{
-                    text: 'Очистить',
+                    text: 'Очистить фильтр',
                     uppercase: true,
                     size: SIZE_XS,
                 }"
@@ -147,15 +152,21 @@
                             rating,
                             description,
                             price,
+                            isAdded,
+                            count,
                         }, index) in activeListProduct"
                         :key="id"
                         @add-to-cart="addToCart(activeListProduct[index])"
+                        @add-count="addCount(activeListProduct[index])"
+                        @remove-count="removeCount(activeListProduct[index])"
                         :product-id="id"
                         :image="image"
                         :title="title"
                         :rating="rating"
                         :description="description"
                         :price="price"
+                        :is-added="isAdded"
+                        :count="count"
                         :search-text="filter.search"
                     />
                 </div>

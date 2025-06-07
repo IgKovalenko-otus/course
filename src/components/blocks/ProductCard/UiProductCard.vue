@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import {inject} from 'vue';
     import {useRouter} from 'vue-router';
     import WordHighlighter from 'vue-word-highlighter';
 
@@ -25,9 +26,12 @@
         rating,
         description = 'Нет описания',
         price = 0,
+        isAdded = false,
+        count = 0,
     } = defineProps<IUiProductCardProps>();
 
-    defineEmits(['addToCart']);
+    defineEmits(['addToCart', 'addCount', 'removeCount']);
+
 </script>
 
 <template>
@@ -67,6 +71,7 @@
                     :weight="FONT_WEIGHT_BOLD"
                 />
                 <ColorUiButton
+                    v-if="!isAdded"
                     @click.stop="$emit('addToCart')"
                     :button-props="{
                         rounded: true,
@@ -77,6 +82,35 @@
                         size: SIZE_XS,
                     }"
                 />
+                <UiLabel
+                    v-else
+                    @click.stop
+                    class="ui-product-card__count"
+                >
+                    <ColorUiButton
+                        @click="$emit('removeCount')"
+                        :button-props="{
+                            rounded: true,
+                            size: SIZE_XS,
+                        }"
+                        :text-props="{
+                            text: '-',
+                            size: SIZE_XS,
+                        }"
+                    />
+                    <UiText :text="`${count}`" />
+                    <ColorUiButton
+                        @click="$emit('addCount')"
+                        :button-props="{
+                            rounded: true,
+                            size: SIZE_XS,
+                        }"
+                        :text-props="{
+                            text: '+',
+                            size: SIZE_XS,
+                        }"
+                    />
+                </UiLabel>
             </UiLabel>
         </UiFrame>
     </div>

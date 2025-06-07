@@ -1,5 +1,10 @@
 <script setup lang="ts">
-    import {inject, ref} from 'vue';
+    import {
+        computed,
+        inject,
+        ref,
+        watch,
+    } from 'vue';
 
     import {SIZE_XS} from 'src/constants';
     import type {IUiListNavigationItem} from './logic/types';
@@ -19,7 +24,7 @@
     ]);
 
     const loginModal = inject('loginModal');
-    const {cart} = inject('cart', undefined);
+    const {cartAddedCount} = inject('cart', undefined);
 
 </script>
 
@@ -37,7 +42,7 @@
                     <ColorUiButton
                         :is-active="isActive"
                         :text-props="{
-                            text: text === 'Basket' ? `${text} ${cart.length} шт` : text,
+                            text: text === 'Basket' ? `${text} ${cartAddedCount} шт` : text,
                             size: SIZE_XS,
                             uppercase: true,
                         }"

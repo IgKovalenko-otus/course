@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import {provide, ref} from 'vue';
+    import {inject} from 'vue';
 
     import UiPageContent from 'blocks/Page/Content/UiPageContent.vue';
     import UiPage from 'blocks/Page/UiPage.vue';
@@ -7,9 +7,8 @@
     import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
     import LoginUiModal from 'route/home/authentication/LoginUiModal.vue';
 
-    const loginModal = ref<boolean>(false);
+    const loginModal = inject('loginModal', false);
 
-    provide('loginModal', loginModal);
 </script>
 
 <template>

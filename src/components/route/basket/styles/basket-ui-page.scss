@@ -35,4 +35,10 @@
   &__card {
     width: em(260, $fz);
   }
+
+  &__products {
+    display: grid;
+
+    grid-gap: em(15, $fz);
+  }
 }

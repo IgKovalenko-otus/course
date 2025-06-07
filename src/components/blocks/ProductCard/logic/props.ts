@@ -8,4 +8,6 @@ export interface IUiProductCardProps {
   image?: string
   rating?: IProductCardRatingProps
   searchText?: string
+  isAdded?: boolean
+  count?: number
 }

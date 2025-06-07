@@ -15,7 +15,6 @@
     } from 'src/constants';
 
     import UiArticle from 'blocks/Article/UiArticle.vue';
-    import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiFrame from 'blocks/Frame/UiFrame.vue';
     import UiPicture from 'blocks/Picture/UiPicture.vue';
     import UiText from 'blocks/Text/UiText.vue';
@@ -69,16 +68,6 @@
                 :text="`${test.price} ₽`"
                 :weight="FONT_WEIGHT_BOLD"
                 :size="SIZE_L"
-            />
-            <ColorUiButton
-                :button-props="{
-                    rounded: true
-                }"
-                :text-props="{
-                    text: 'Добавить в корзину',
-                    weight: FONT_WEIGHT_BOLD,
-                    size: SIZE_S,
-                }"
             />
         </UiFrame>
     </UiArticle>
