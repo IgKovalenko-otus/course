@@ -1,9 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 import HomeUiPage from 'route/home/HomeUiPage.vue';
-import BasketUiPage from 'route/basket/BasketUiPage.vue';
-import AdminUiPage from 'route/admin/AdminUiPage.vue';
-import ProductUiPage from 'route/product/ProductUiPage.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,16 +13,16 @@ const router = createRouter({
         {
             path: '/basket',
             name: 'basket',
-            component: BasketUiPage
+            component: () => import('route/basket/BasketUiPage.vue')
         },
         {
             path: '/admin',
             name: 'admin',
-            component: AdminUiPage
+            component: () => import('route/admin/AdminUiPage.vue')
         },
         {
             path: '/product/:id',
-            component: ProductUiPage
+            component: () => import('route/product/ProductUiPage.vue')
         },
     ],
 })
