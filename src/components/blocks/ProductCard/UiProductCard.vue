@@ -26,6 +26,8 @@
         description = 'Нет описания',
         price = 0,
     } = defineProps<IUiProductCardProps>();
+
+    defineEmits(['addToCart']);
 </script>
 
 <template>
@@ -65,6 +67,7 @@
                     :weight="FONT_WEIGHT_BOLD"
                 />
                 <ColorUiButton
+                    @click.stop="$emit('addToCart')"
                     :button-props="{
                         rounded: true,
                         size: SIZE_XS,

@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import {
         computed,
+        inject,
         onMounted,
         ref,
     } from 'vue';
@@ -62,6 +63,7 @@
             .catch((error) => console.log(error));
     });
 
+    const {addToCart} = inject('cart', undefined);
 </script>
 
 <template>
@@ -138,15 +140,16 @@
                     class="ui-product-filter__list"
                 >
                     <UiProductCard
-                        v-for="{
+                        v-for="({
                             id,
                             image,
                             title,
                             rating,
                             description,
                             price,
-                        } in activeListProduct"
+                        }, index) in activeListProduct"
                         :key="id"
+                        @add-to-cart="addToCart(activeListProduct[index])"
                         :product-id="id"
                         :image="image"
                         :title="title"

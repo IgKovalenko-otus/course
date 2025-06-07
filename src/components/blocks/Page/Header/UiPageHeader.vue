@@ -19,6 +19,8 @@
     ]);
 
     const loginModal = inject('loginModal');
+    const {cart} = inject('cart', undefined);
+
 </script>
 
 <template>
@@ -35,7 +37,7 @@
                     <ColorUiButton
                         :is-active="isActive"
                         :text-props="{
-                            text: text,
+                            text: text === 'Basket' ? `${text} ${cart.length} шт` : text,
                             size: SIZE_XS,
                             uppercase: true,
                         }"
