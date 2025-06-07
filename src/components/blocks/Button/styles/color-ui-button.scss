@@ -7,4 +7,12 @@
   &:hover {
     background: hsl(177, 52%, 46%);
   }
+
+  &--is-active {
+    background-color: hsl(0, 87%, 62%);
+
+    &:hover {
+      background-color: hsl(0, 87%, 62%);
+    }
+  }
 }

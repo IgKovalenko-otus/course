@@ -1,4 +1,6 @@
 <script setup lang="ts">
+    import {inject} from 'vue';
+    import {useRouter} from 'vue-router';
     import WordHighlighter from 'vue-word-highlighter';
 
     import {
@@ -15,19 +17,26 @@
     import ProductCardRating from 'blocks/ProductCard/Rating/ProductCardRating.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
+    const router = useRouter();
+
     const {
+        productId = 0,
         image,
         title = 'Нет заголовка',
         rating,
         description = 'Нет описания',
         price = 0,
+        isAdded = false,
+        count = 0,
     } = defineProps<IUiProductCardProps>();
+
+    defineEmits(['addToCart', 'addCount', 'removeCount']);
+
 </script>
 
 <template>
-    <a
-        href="#"
-        target="_blank"
+    <div
+        @click="router.push(`/product/${productId}`)"
         class="ui-product-card"
     >
         <UiFrame class="ui-product-card__content">
@@ -47,7 +56,9 @@
                 :size="SIZE_S"
                 :weight="FONT_WEIGHT_BOLD"
             >
-                <WordHighlighter :query="searchText"> {{ title }} </WordHighlighter>
+                <WordHighlighter :query="searchText">
+                    {{ title }}
+                </WordHighlighter>
             </UiText>
             <UiText
                 :text="description"
@@ -60,6 +71,8 @@
                     :weight="FONT_WEIGHT_BOLD"
                 />
                 <ColorUiButton
+                    v-if="!isAdded"
+                    @click.stop="$emit('addToCart')"
                     :button-props="{
                         rounded: true,
                         size: SIZE_XS,
@@ -69,9 +82,38 @@
                         size: SIZE_XS,
                     }"
                 />
+                <UiLabel
+                    v-else
+                    @click.stop
+                    class="ui-product-card__count"
+                >
+                    <ColorUiButton
+                        @click="$emit('removeCount')"
+                        :button-props="{
+                            rounded: true,
+                            size: SIZE_XS,
+                        }"
+                        :text-props="{
+                            text: '-',
+                            size: SIZE_XS,
+                        }"
+                    />
+                    <UiText :text="`${count}`" />
+                    <ColorUiButton
+                        @click="$emit('addCount')"
+                        :button-props="{
+                            rounded: true,
+                            size: SIZE_XS,
+                        }"
+                        :text-props="{
+                            text: '+',
+                            size: SIZE_XS,
+                        }"
+                    />
+                </UiLabel>
             </UiLabel>
         </UiFrame>
-    </a>
+    </div>
 </template>
 
 <style src="./styles/ui-product-card.scss" lang="scss"></style>

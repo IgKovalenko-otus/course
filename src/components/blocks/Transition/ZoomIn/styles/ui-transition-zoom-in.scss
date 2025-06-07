@@ -1,0 +1,11 @@
+.ui-transition-zoom-in {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.5s;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: scale(0);
+  }
+}

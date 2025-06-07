@@ -7,7 +7,7 @@
         minLength,
         required,
     } from '@vuelidate/validators';
-    import {ref} from 'vue';
+    import {inject, ref} from 'vue';
     import {MaskInput} from 'vue-3-mask';
     import axios from 'axios';
 
@@ -16,21 +16,23 @@
         SIZE_S,
         SIZE_XS,
     } from 'src/constants';
+    import type {IOrder} from './logic/types';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiCheckbox from 'blocks/Checkbox/UiCheckbox.vue';
     import UiField from 'blocks/Field/UiField.vue';
     import UiForm from 'blocks/Form/UiForm.vue';
     import UiInput from 'blocks/Input/UiInput.vue';
+    import UiLabel from 'blocks/Label/UiLabel.vue';
     import UiMessage from 'blocks/Message/UiMessage.vue';
     import UiSelect from 'blocks/Select/UiSelect.vue';
     import UiText from 'blocks/Text/UiText.vue';
     import UiTransitionFadeIn from 'blocks/Transition/FadeIn/UiTransitionFadeIn.vue';
 
     const countryList = ['Россия', 'Казахстан', 'Беларусь'];
-    const completedOrder = ref(false);
+    const completedOrder = ref<boolean>(false);
 
-    const order = ref({
+    const order = ref<IOrder>({
         name: '',
         email: '',
         phone: '',
@@ -77,10 +79,12 @@
         }
     }
 
+    const {cartTotal} = inject('cart', undefined);
+
 </script>
 
 <template>
-    <UiForm>
+    <UiForm class="basket-ui-form">
         <UiText
             text="Оформление заказа"
             :size="SIZE_S"
@@ -126,6 +130,10 @@
                 :size="SIZE_XS"
             />
         </UiCheckbox>
+        <UiLabel class="basket-ui-form__total">
+            <UiText text="Итого:" />
+            <UiText :text="`${cartTotal.toFixed(2)} ₽`" />
+        </UiLabel>
         <ColorUiButton
             @click="submit()"
             :button-props="{
@@ -139,7 +147,7 @@
             }"
         />
     </UiForm>
-    <teleport to="#app">
+    <teleport to="#ui-app">
         <UiTransitionFadeIn>
             <UiMessage
                 v-if="completedOrder"
@@ -149,3 +157,5 @@
         </UiTransitionFadeIn>
     </teleport>
 </template>
+
+<style src="./styles/basket-ui-form.scss" lang="scss"></style>

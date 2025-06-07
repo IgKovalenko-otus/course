@@ -24,12 +24,15 @@
 
   &__nav-button {
     border-radius: em(25, $fz);
+    overflow: hidden;
   }
 
-  &__registration {
+  &__login {
     display: flex;
     padding: em(10 20, $fz);
     min-height: em(40, $fz);
+
+    align-items: center;
 
     background: hsl(0, 0%, 100%);
     border-radius: em(25, $fz);

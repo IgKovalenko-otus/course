@@ -1,4 +1,6 @@
 .ui-product-card {
+  cursor: pointer;
+
   transition: transform 0.1s linear;
 
   &:hover {
@@ -30,5 +32,9 @@
   &__add {
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__count {
+    align-items: center;
   }
 }

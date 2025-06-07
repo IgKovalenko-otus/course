@@ -1,5 +1,7 @@
 .ui-form {
-  display: grid;
+  &__content {
+    display: grid;
 
-  grid-gap: em(20, $fz);
+    grid-gap: em(20, $fz);
+  }
 }

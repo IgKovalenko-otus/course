@@ -3,9 +3,14 @@
 </script>
 
 <template>
-    <UiFrame class="ui-form">
-        <slot></slot>
-    </UiFrame>
+    <form
+        onsubmit="return false"
+        class="ui-form"
+    >
+        <UiFrame class="ui-form__content">
+            <slot></slot>
+        </UiFrame>
+    </form>
 </template>
 
 <style src="./styles/ui-form.scss" lang="scss"></style>

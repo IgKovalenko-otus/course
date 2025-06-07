@@ -6,6 +6,7 @@
     "moduleResolution": "Node",
     "paths": {
       "src/*": ["./src/*"],
+      "composables/*": ["./src/composables/*"],
       "blocks/*": ["./src/components/blocks/*"],
       "route/*": ["./src/components/route/*"],
     }

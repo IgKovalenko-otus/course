@@ -1,5 +1,10 @@
 <script setup lang="ts">
-    import {onMounted, ref} from 'vue';
+    import {
+        onMounted,
+        ref,
+        watch,
+    } from 'vue';
+    import {useRoute} from 'vue-router';
     import axios from 'axios';
 
     import {
@@ -10,27 +15,33 @@
     } from 'src/constants';
 
     import UiArticle from 'blocks/Article/UiArticle.vue';
-    import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiFrame from 'blocks/Frame/UiFrame.vue';
     import UiPicture from 'blocks/Picture/UiPicture.vue';
     import UiText from 'blocks/Text/UiText.vue';
 
+    const route = useRoute();
+
     const test = ref({
         image: '',
-        title: 'Нет заголовка',
+        title: '',
         rating: [],
-        description: 'Нет описания',
+        description: '',
         price: 0,
     });
 
     onMounted(() => {
         axios
-            .get('https://fakestoreapi.com/products/1')
+            .get(`https://fakestoreapi.com/products/${route.params.id}`)
             .then((response) => {
                 test.value = response.data;
             })
             .catch((error) => console.log(error));
     });
+
+    watch(test.value, (newValue) => {
+        test.value = newValue;
+    });
+
 </script>
 
 <template>
@@ -57,16 +68,6 @@
                 :text="`${test.price} ₽`"
                 :weight="FONT_WEIGHT_BOLD"
                 :size="SIZE_L"
-            />
-            <ColorUiButton
-                :button-props="{
-                    rounded: true
-                }"
-                :text-props="{
-                    text: 'Добавить в корзину',
-                    weight: FONT_WEIGHT_BOLD,
-                    size: SIZE_S,
-                }"
             />
         </UiFrame>
     </UiArticle>

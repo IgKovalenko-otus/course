@@ -11,20 +11,34 @@
     justify-items: unset;
   }
 
+  &__message {
+    display: grid;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+  }
+
   &__list {
     display: grid;
     padding: em(20, $fz);
 
     grid-auto-flow: column;
     grid-gap: em(20, $fz);
-    overflow: auto;
 
     justify-items: center;
 
     background: hsl(0, 0%, 95%);
+    overflow: auto;
   }
 
   &__card {
     width: em(260, $fz);
+  }
+
+  &__products {
+    display: grid;
+
+    grid-gap: em(15, $fz);
   }
 }

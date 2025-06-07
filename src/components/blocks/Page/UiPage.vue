@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import UiPageFooter from 'blocks/Page/Footer/UiPageFooter.vue';
     import UiPageHeader from 'blocks/Page/Header/UiPageHeader.vue';
 </script>
 
@@ -6,6 +7,7 @@
     <div class="ui-page">
         <UiPageHeader />
         <slot></slot>
+        <UiPageFooter />
     </div>
 </template>
 

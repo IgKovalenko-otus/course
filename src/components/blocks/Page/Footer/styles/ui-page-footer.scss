@@ -1,0 +1,30 @@
+.ui-page-footer {
+  display: grid;
+
+  align-items: center;
+  justify-content: center;
+
+  background: hsl(0, 0%, 95%);
+  border-top: 2px solid hsl(179, 51%, 39%);
+
+  &__list {
+    display: flex;
+    padding: em(20, $fz);
+
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    display: flex;
+    padding: em(10, $fz);
+    min-width: em(200, $fz);
+
+    justify-content: center;
+
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid hsl(179, 51%, 39%);
+    }
+  }
+}

@@ -3,6 +3,7 @@
   padding: em(20, $fz);
   width: 100%;
   max-width: em(1400, $fz);
+  min-height: calc(100vh - em(70, $fz));
   margin: 0 auto;
 
   grid-gap: em(20, $fz);
