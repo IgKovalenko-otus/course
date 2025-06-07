@@ -4,8 +4,11 @@
         ref,
         watch,
     } from 'vue';
+    import {useRoute} from 'vue-router';
 
     import UiApp from 'blocks/App/UiApp.vue';
+
+    const route = useRoute();
 
     const loginModal = ref<boolean>(false);
 
@@ -79,7 +82,7 @@
             <KeepAlive>
                 <component
                     :is="Component"
-                    :key="$route.params.id"
+                    :key="route.params.id"
                 />
             </KeepAlive>
         </RouterView>

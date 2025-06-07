@@ -1,16 +1,14 @@
 <script setup lang="ts">
-    import {
-        computed,
-        inject,
-        ref,
-        watch,
-    } from 'vue';
+    import {inject, ref} from 'vue';
+    import {useRoute} from 'vue-router';
 
     import {SIZE_XS} from 'src/constants';
     import type {IUiListNavigationItem} from './logic/types';
 
     import ColorUiButton from 'blocks/Button/ColorUiButton.vue';
     import UiText from 'blocks/Text/UiText.vue';
+
+    const route = useRoute();
 
     const listNavigation = ref<IUiListNavigationItem[]>([
         {
@@ -50,7 +48,7 @@
                 </RouterLink>
             </nav>
             <button
-                v-if="$route.name === 'home'"
+                v-if="route.name === 'home'"
                 @click="loginModal = true"
                 class="ui-page-header__login"
             >
